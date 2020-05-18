@@ -1,5 +1,3 @@
-import axios from 'axios';
-import { Dispatch } from 'redux';
 import { ActionTypes } from './types';
 
 export interface Todo {
@@ -10,6 +8,10 @@ export interface Todo {
 
 export interface FetchTodosAction {
   type: ActionTypes.fetchTodos;
+}
+
+export interface FetchTodosSuccess {
+  type: ActionTypes.FETCH_SUCCESS;
   payload: Todo[];
 }
 
@@ -18,16 +20,9 @@ export interface DeleteTodoAction {
   payload: number;
 }
 
-const url = 'https://jsonplaceholder.typicode.com/todos';
-
 export const fetchTodos = () => {
-  return async (dispatch: Dispatch) => {
-    const response = await axios.get<Todo[]>(url);
-
-    dispatch<FetchTodosAction>({
-      type: ActionTypes.fetchTodos,
-      payload: response.data,
-    });
+  return {
+    type: ActionTypes[0],
   };
 };
 
