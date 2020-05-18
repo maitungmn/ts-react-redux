@@ -46,6 +46,7 @@ class _App extends React.Component<AppProps, AppState> {
   }
 
   render() {
+    console.log(111)
     return (
       <div>
         <button onClick={this.onButtonClick}>Fetch</button>
