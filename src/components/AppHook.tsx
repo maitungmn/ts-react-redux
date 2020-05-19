@@ -2,6 +2,8 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Todo, fetchTodos, deleteTodo } from '../actions'
 import { StoreState } from '../reducers'
+import { LoginForm } from './LoginFormCustomHook'
+import { LoginForm as LoginFormWithFormData } from './LoginFormWithFormData'
 
 const _App: React.FC = () => {
 
@@ -12,8 +14,9 @@ const _App: React.FC = () => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
+    console.log(1111)
     setFetching(false)
-  }, []);
+  }, [todos]);
 
   const onButtonClick = (): void => {
     dispatch(fetchTodos())
@@ -39,6 +42,10 @@ const _App: React.FC = () => {
       <button onClick={onButtonClick}>Fetch</button>
       {fetching && 'LOADING'}
       {renderList()}
+      <div>
+        <LoginForm />
+        <LoginFormWithFormData />
+      </div>
     </div>
   )
 }
