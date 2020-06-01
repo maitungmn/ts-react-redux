@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function LoginForm() {
+export function LoginForm(): React.ReactElement {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const formData = new FormData(e.target as HTMLFormElement);
